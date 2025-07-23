@@ -1,6 +1,6 @@
 # Efeito Parallax 3D - Guia Completo para Iniciantes
 
-**Autor:** Manus AI  
+**Autor:** RELVCODE
 **Data:** 23 de Janeiro de 2025  
 **Projeto:** Site Parallax 3D - China Zhangjiajie  
 

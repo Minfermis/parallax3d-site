@@ -16,18 +16,20 @@ html, body {
     -ms-text-size-adjust: 100%;
 }
 
-/* Header corrigido */
+/* Header corrigido - estilo sutil como no vídeo */
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 30px 100px;
+    padding: 10px 100px; /* Altura ainda menor */
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
-    flex-wrap: nowrap; /* Evita quebra de linha */
+    flex-wrap: nowrap;
+    background: transparent; /* Completamente transparente */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Apenas linha sutil */
 }
 
 .logo {
@@ -94,7 +96,7 @@ main::before {
     z-index: 1000;
 }
 
-/* Imagens parallax - seguindo exatamente o PDF com correções */
+/* Imagens parallax - seguindo exatamente o CSS original com correções */
 .bg-img {
     position: absolute;
     width: 2800px;
@@ -113,6 +115,7 @@ main::before {
     left: calc(50% + 0px);
     width: 2000px; /* Aumentado para cobrir melhor */
     transform: translate(-50%, -50%);
+    opacity: 0.6;
 }
 
 .mountain-10 {
@@ -132,6 +135,7 @@ main::before {
     left: calc(50% - 30px);
     width: 2500px; /* MUITO AUMENTADO para cobrir toda a tela */
     transform: translate(-50%, -50%);
+    opacity: 0.5;
 }
 
 .mountain-9 {
@@ -159,6 +163,7 @@ main::before {
     left: calc(50% - 28px);
     width: 2000px; /* Aumentado para cobrir melhor */
     transform: translate(-50%, -50%);
+    opacity: 0.4;
 }
 
 .mountain-7 {
@@ -186,6 +191,7 @@ main::before {
     left: calc(50% - 64px);
     width: 800px; /* Aumentado */
     transform: translate(-50%, -50%);
+    opacity: 0.5;
 }
 
 .mountain-5 {
@@ -204,6 +210,7 @@ main::before {
     left: calc(50% + 29px);
     width: 600px; /* Aumentado */
     transform: translate(-50%, -50%);
+    opacity: 0.5;
 }
 
 .mountain-4 {
@@ -231,6 +238,7 @@ main::before {
     left: calc(50% + 7px);
     width: 2200px; /* Aumentado */
     transform: translate(-50%, -50%);
+    opacity: 0.4;
 }
 
 .mountain-2 {
@@ -256,8 +264,13 @@ main::before {
     z-index: 19;
     top: calc(50% - 100px);
     left: calc(50% + 0px);
-    width: 1000px;
+    width: 1400px; /* Aumentado de 1000px para 1400px */
     transform: translate(-50%, -50%);
+    opacity: 0.8;
+    
+    /* Adicionando opacidade nas bordas */
+    mask: radial-gradient(circle at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0.8) 60%, rgba(0,0,0,0.3) 80%, rgba(0,0,0,0) 100%);
+    -webkit-mask: radial-gradient(circle at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0.8) 60%, rgba(0,0,0,0.3) 80%, rgba(0,0,0,0) 100%);
 }
 
 .black-shadow {
@@ -276,6 +289,7 @@ main::before {
     left: calc(50% + 300px);
     width: 2200px; /* Aumentado */
     transform: translate(-50%, -50%);
+    opacity: 0.6;
 }
 
 /* Texto central com animações */
@@ -301,103 +315,63 @@ main::before {
 }
 
 .text h2 {
-    font-size: 2em;
+    font-size: 3.5vw;
     font-weight: 400;
     text-transform: uppercase;
-    margin-bottom: 10px;
-    margin-top: 0;
+    margin-top: 10px;
+    letter-spacing: 8px;
+    opacity: 0.9;
 }
 
-/* ANIMAÇÕES DE ENTRADA DAS LETRAS */
-.text-top {
-    animation: slideInFromTop 2s ease-out forwards;
-    opacity: 0;
-}
-
-.text-bottom {
-    animation: slideInFromBottom 2s ease-out 0.5s forwards;
-    opacity: 0;
-}
-
-@keyframes slideInFromTop {
-    0% {
-        opacity: 0;
-        transform: translateY(-100px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slideInFromBottom {
-    0% {
-        opacity: 0;
-        transform: translateY(100px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Hamburguer menu */
+/* Menu hambúrguer */
 .hamburguer {
     display: none;
-}
-
-.search {
-    display: block;
 }
 
 .bar {
     width: 25px;
     height: 3px;
     background: #fff;
-    margin: 3px 0;
-    transition: 0.3s;
+    margin: 4px 0;
+    transition: 0.3s ease;
+    border-radius: 2px;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
     header {
-        padding: 20px;
-        flex-wrap: wrap; /* Permitir quebra de linha para o menu hambúrguer */
-        justify-content: space-between;
+        padding: 15px 20px;
+        flex-wrap: wrap;
     }
     
     .logo {
-        font-size: 1.5em;
-        width: 100%; /* Ocupar toda a largura para evitar corte */
-        text-align: center;
-        margin-bottom: 10px;
-    }
-    
-    nav {
-        width: 100%;
-        justify-content: center;
+        font-size: 1.8rem;
     }
     
     nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(20px);
+        padding: 20px;
+        gap: 15px;
+    }
+    
+    nav ul.active {
+        display: flex;
     }
     
     nav ul li {
-        margin: 5px 10px;
+        margin: 0;
     }
     
-    nav ul li a {
-        padding: 5px 10px;
-        font-size: 0.9em;
-    }
-    
-    main {
-        padding: 20px;
-    }
-    
-    .text {
-        font-size: 12vw;
+    .hamburguer {
+        display: block;
+        cursor: pointer;
     }
     
     .text h1 {
@@ -405,109 +379,12 @@ main::before {
     }
     
     .text h2 {
-        font-size: 1.5em;
+        font-size: 6vw;
+        letter-spacing: 4px;
     }
     
-    .hamburguer {
-        display: block;
-    }
-    
-    .search {
-        display: none;
-    }
-    
-    nav ul li:not(.hamburguer) {
-        display: none;
-    }
-    
-    /* Reduzir tamanhos das imagens para mobile */
-    .bg-img {
-        width: 1400px;
-    }
-    
-    .fog-1 {
-        width: 1100px;
-    }
-    
-    .fog-2 {
-        width: 1100px;
-    }
-    
-    .fog-3 {
-        width: 300px;
-    }
-    
-    .fog-4 {
-        width: 400px;
-    }
-    
-    .fog-5 {
-        width: 1000px;
-    }
-    
-    .fog-6 {
-        width: 1250px;
-    }
-    
-    .fog-7 {
-        width: 1000px;
-    }
-    
-    .mountain-10 {
-        width: 435px;
-    }
-    
-    .mountain-9 {
-        width: 231px;
-    }
-    
-    .mountain-8 {
-        width: 393px;
-    }
-    
-    .mountain-7 {
-        width: 257px;
-    }
-    
-    .mountain-6 {
-        width: 191px;
-    }
-    
-    .mountain-5 {
-        width: 291px;
-    }
-    
-    .mountain-4 {
-        width: 358px;
-    }
-    
-    .mountain-3 {
-        width: 209px;
-    }
-    
-    .mountain-2 {
-        width: 312px;
-    }
-    
-    .mountain-1 {
-        width: 225px;
-    }
-    
-    .sun-rays {
-        width: 500px;
-    }
-    
-    .black-shadow {
-        width: 1400px;
+    main {
+        padding: 50px 20px;
     }
 }
-
-/* Otimizações de performance */
-.parallax {
-    will-change: transform;
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-}
-
-
 

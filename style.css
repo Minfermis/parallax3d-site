@@ -1,0 +1,513 @@
+/* Reset e configurações básicas */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+    /* Previne zoom em mobile e garante que o layout não se desorganize ao redimensionar */
+    touch-action: manipulation;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+/* Header corrigido */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    flex-wrap: nowrap; /* Evita quebra de linha */
+}
+
+.logo {
+    color: #fff;
+    font-weight: 700;
+    font-size: 2em;
+    text-decoration: none;
+    white-space: nowrap; /* Evita quebra de linha */
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: nowrap; /* Evita quebra de linha */
+}
+
+nav ul li {
+    margin-left: 20px;
+    white-space: nowrap; /* Evita quebra de linha */
+}
+
+nav ul li a {
+    text-decoration: none;
+    padding: 6px 15px;
+    color: #fff;
+    border-radius: 20px;
+    display: block;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background: #fff;
+    color: #2b1055;
+}
+
+/* Container principal */
+main {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+main::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top, #1c0522, transparent);
+    z-index: 1000;
+}
+
+/* Imagens parallax - seguindo exatamente o PDF com correções */
+.bg-img {
+    position: absolute;
+    width: 2800px;
+    top: calc(50% - 390px);
+    left: calc(50% + 10px);
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    opacity: 0.2;
+}
+
+/* FOG-7 CORRIGIDO */
+.fog-7 {
+    position: absolute;
+    z-index: 2;
+    top: calc(50% - 200px);
+    left: calc(50% + 0px);
+    width: 2000px; /* Aumentado para cobrir melhor */
+    transform: translate(-50%, -50%);
+}
+
+.mountain-10 {
+    position: absolute;
+    z-index: 3;
+    top: calc(50% + 69px);
+    width: 870px;
+    left: calc(50% + 230px);
+    transform: translate(-50%, -50%);
+}
+
+/* FOG-6 CORRIGIDO - Muito maior para evitar "quadrados" */
+.fog-6 {
+    position: absolute;
+    z-index: 5;
+    top: calc(50% + 177px);
+    left: calc(50% - 30px);
+    width: 2500px; /* MUITO AUMENTADO para cobrir toda a tela */
+    transform: translate(-50%, -50%);
+}
+
+.mountain-9 {
+    position: absolute;
+    z-index: 5;
+    top: calc(50% + 119px);
+    width: 463px;
+    left: calc(50% - 457px);
+    transform: translate(-50%, -50%);
+}
+
+.mountain-8 {
+    position: absolute;
+    z-index: 6;
+    top: calc(50% + 96px);
+    width: 786px;
+    left: calc(50% - 202px);
+    transform: translate(-50%, -50%);
+}
+
+.fog-5 {
+    position: absolute;
+    z-index: 13;
+    top: calc(50% + 149px);
+    left: calc(50% - 28px);
+    width: 2000px; /* Aumentado para cobrir melhor */
+    transform: translate(-50%, -50%);
+}
+
+.mountain-7 {
+    position: absolute;
+    z-index: 8;
+    width: 515px;
+    top: calc(50% + 134px);
+    left: calc(50% + 305px);
+    transform: translate(-50%, -50%);
+}
+
+.mountain-6 {
+    position: absolute;
+    z-index: 10;
+    top: calc(50% + 86.5px);
+    width: 383.5px;
+    left: calc(50% + 590px);
+    transform: translate(-50%, -50%);
+}
+
+.fog-4 {
+    position: absolute;
+    z-index: 11;
+    top: calc(50% + 242px);
+    left: calc(50% - 64px);
+    width: 800px; /* Aumentado */
+    transform: translate(-50%, -50%);
+}
+
+.mountain-5 {
+    position: absolute;
+    z-index: 12;
+    top: calc(50% + 269px);
+    width: 583px;
+    left: calc(50% + 130px);
+    transform: translate(-50%, -50%);
+}
+
+.fog-3 {
+    position: absolute;
+    z-index: 7;
+    top: calc(50% + 171px);
+    left: calc(50% + 29px);
+    width: 600px; /* Aumentado */
+    transform: translate(-50%, -50%);
+}
+
+.mountain-4 {
+    position: absolute;
+    z-index: 14;
+    top: calc(50% + 221px);
+    width: 717px;
+    left: calc(50% - 381.5px);
+    transform: translate(-50%, -50%);
+}
+
+.mountain-3 {
+    position: absolute;
+    z-index: 15;
+    top: calc(50% + 133px);
+    left: calc(50% + 736px);
+    width: 419px;
+    transform: translate(-50%, -50%);
+}
+
+.fog-2 {
+    position: absolute;
+    z-index: 4;
+    top: calc(50% + 95px);
+    left: calc(50% + 7px);
+    width: 2200px; /* Aumentado */
+    transform: translate(-50%, -50%);
+}
+
+.mountain-2 {
+    position: absolute;
+    z-index: 17;
+    top: calc(50% + 188px);
+    left: calc(50% + 412px);
+    width: 625px;
+    transform: translate(-50%, -50%);
+}
+
+.mountain-1 {
+    position: absolute;
+    z-index: 18;
+    top: calc(50% + 91.5px);
+    left: calc(50% - 601px);
+    width: 450px;
+    transform: translate(-50%, -50%);
+}
+
+.sun-rays {
+    position: absolute;
+    z-index: 19;
+    top: calc(50% - 100px);
+    left: calc(50% + 0px);
+    width: 1000px;
+    transform: translate(-50%, -50%);
+}
+
+.black-shadow {
+    position: absolute;
+    z-index: 20;
+    top: calc(50% + 300px);
+    left: calc(50% + 0px);
+    width: 2800px;
+    transform: translate(-50%, -50%);
+}
+
+.fog-1 {
+    position: absolute;
+    z-index: 21;
+    top: calc(50% - 100px);
+    left: calc(50% + 300px);
+    width: 2200px; /* Aumentado */
+    transform: translate(-50%, -50%);
+}
+
+/* Texto central com animações */
+.text {
+    position: absolute;
+    color: #fff; /* Cor do texto mais visível */
+    white-space: nowrap;
+    font-size: 7.5vw;
+    z-index: 9;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para visibilidade */
+}
+
+.text h1 {
+    font-size: 7.5vw;
+    font-weight: 900;
+    line-height: 1em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.text h2 {
+    font-size: 2em;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+/* ANIMAÇÕES DE ENTRADA DAS LETRAS */
+.text-top {
+    animation: slideInFromTop 2s ease-out forwards;
+    opacity: 0;
+}
+
+.text-bottom {
+    animation: slideInFromBottom 2s ease-out 0.5s forwards;
+    opacity: 0;
+}
+
+@keyframes slideInFromTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hamburguer menu */
+.hamburguer {
+    display: none;
+}
+
+.search {
+    display: block;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header {
+        padding: 20px;
+        flex-wrap: wrap; /* Permitir quebra de linha para o menu hambúrguer */
+        justify-content: space-between;
+    }
+    
+    .logo {
+        font-size: 1.5em;
+        width: 100%; /* Ocupar toda a largura para evitar corte */
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    
+    nav {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    nav ul li {
+        margin: 5px 10px;
+    }
+    
+    nav ul li a {
+        padding: 5px 10px;
+        font-size: 0.9em;
+    }
+    
+    main {
+        padding: 20px;
+    }
+    
+    .text {
+        font-size: 12vw;
+    }
+    
+    .text h1 {
+        font-size: 12vw;
+    }
+    
+    .text h2 {
+        font-size: 1.5em;
+    }
+    
+    .hamburguer {
+        display: block;
+    }
+    
+    .search {
+        display: none;
+    }
+    
+    nav ul li:not(.hamburguer) {
+        display: none;
+    }
+    
+    /* Reduzir tamanhos das imagens para mobile */
+    .bg-img {
+        width: 1400px;
+    }
+    
+    .fog-1 {
+        width: 1100px;
+    }
+    
+    .fog-2 {
+        width: 1100px;
+    }
+    
+    .fog-3 {
+        width: 300px;
+    }
+    
+    .fog-4 {
+        width: 400px;
+    }
+    
+    .fog-5 {
+        width: 1000px;
+    }
+    
+    .fog-6 {
+        width: 1250px;
+    }
+    
+    .fog-7 {
+        width: 1000px;
+    }
+    
+    .mountain-10 {
+        width: 435px;
+    }
+    
+    .mountain-9 {
+        width: 231px;
+    }
+    
+    .mountain-8 {
+        width: 393px;
+    }
+    
+    .mountain-7 {
+        width: 257px;
+    }
+    
+    .mountain-6 {
+        width: 191px;
+    }
+    
+    .mountain-5 {
+        width: 291px;
+    }
+    
+    .mountain-4 {
+        width: 358px;
+    }
+    
+    .mountain-3 {
+        width: 209px;
+    }
+    
+    .mountain-2 {
+        width: 312px;
+    }
+    
+    .mountain-1 {
+        width: 225px;
+    }
+    
+    .sun-rays {
+        width: 500px;
+    }
+    
+    .black-shadow {
+        width: 1400px;
+    }
+}
+
+/* Otimizações de performance */
+.parallax {
+    will-change: transform;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+
+
+
